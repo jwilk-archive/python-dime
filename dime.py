@@ -18,7 +18,7 @@ DIME specification: <http://xml.coverpages.org/draft-nielsen-dime-02.txt>.
 '''
 
 __author__ = 'Jakub Wilk <ubanus@users.sf.net>'
-__version__ = 'svn%03d' % int('$ LastChangedRevision: 1 $'.split()[2])
+__version__ = 'svn%03d' % int('$LastChangedRevision$'.split()[1])
 __all__ = \
 [
 	'Message',
