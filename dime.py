@@ -171,7 +171,6 @@ def _read_padded(stream, count):
 	return value
 
 DEFAULT_VERSION = 1
-DEFAULT_OPTIONS = ''
 DEFAULT_TYPE = UnknownType()
 SUPPORTED_VERSIONS = (1,)
 
@@ -183,7 +182,7 @@ class Record(object):
 	class UnsupportedVersion(Exception):
 		pass
 
-	def __init__(self, id = None, type = DEFAULT_TYPE, data = '', mb = 0, me = 0, cf = 0, options = DEFAULT_OPTIONS, version = DEFAULT_VERSION):
+	def __init__(self, id = None, type = DEFAULT_TYPE, data = '', mb = 0, me = 0, cf = 0, version = DEFAULT_VERSION):
 		if id is None:
 			from uuid import uuid4
 			id = 'uuid:%s' % uuid4()
@@ -192,12 +191,10 @@ class Record(object):
 		_typecheck(data, str)
 		for v in mb, me, cf:
 			_typecheck_int(v, 1)
-		_typecheck_str(options, 16)
 		_typecheck_int(version, 5)
 		self.data = data
 		self.type = type
 		self.version = version
-		self.options = ''
 		self.id = id
 		self.mb = mb
 		self.me = me
@@ -215,10 +212,11 @@ class Record(object):
 		_write1(stream, dose)
 		dose = self.type.tnf << 4;
 		_write1(stream, dose)
-		for q in (self.options, self.id, self.type.value):
+		options = '' # options are not supported
+		for q in (options, self.id, self.type.value):
 			_write2(stream, len(q))
 		_write4(stream, len(self.data))
-		for q in (self.options, self.id, self.type.value, self.data):
+		for q in (options, self.id, self.type.value, self.data):
 			_write_padded(stream, q)
 
 	@staticmethod
@@ -239,10 +237,11 @@ class Record(object):
 		type_length = _read2(stream)
 		data_length = _read4(stream)
 		options = _read_padded(stream, options_length)
+		del options # options are not supported
 		id = _read_padded(stream, id_length)
 		type = _read_padded(stream, type_length)
 		data = _read_padded(stream, data_length)
-		return Record(id, Type.load_string(tnf, type), data, mb, me, cf, options, version)
+		return Record(id, Type.load_string(tnf, type), data, mb, me, cf, version)
 	
 	@staticmethod
 	def load_all(stream):
