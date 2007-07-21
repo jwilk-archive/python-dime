@@ -104,7 +104,6 @@ class MediaType(Type):
 		maintype, subtype = self.value.split('/')
 		return MIMEBase(maintype, subtype)
 
-
 class TypeByUri(Type):
 
 	_code = 0x02
@@ -282,7 +281,7 @@ class Message(object):
 
 	def __getitem__(self, key):
 		if isinstance(key, int):
-			return self.record[key]
+			return self.records[key]
 		else:
 			return self.dict[key]
 
