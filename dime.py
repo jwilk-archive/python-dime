@@ -54,9 +54,15 @@ def _typecheck(value, klass):
 
 class Type(object):
 
-	'''Please don't subclass Type, unless you know what you're doing.'''
+	'''Please don't subclass Type, unless you know what you're doing.
+	Please don't isntantiate Type. Instead, use one of its subclasses.'''
 
 	def __init__(self, value = ''):
+		if self.__class__ == Type:
+			raise TypeError(
+				'''Please use one of the Type's subclasses: %s.''' %
+				', '.join(klass.__name__ for klass in Type.__subclasses__())
+			)
 		_typecheck_str(value, 16)
 		try:
 			if self.require_empty_value and value != '':
