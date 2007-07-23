@@ -115,12 +115,15 @@ except TypeError:
 	oparser.error('Invalid or missing revison number')
 project_code, username, password = guess_credentials(**vars(options))
 if not username: oparser.error('Username is missing')
-if not password: oparser.error('Password is missing')
 if not project_code: oparser.error('Project code is missing')
 
 print >>stderr, 'Project code: %s' % project_code
 print >>stderr, 'Username: %s' % username
-print >>stderr, 'Password: *****'
+if not password:
+	from getpass import getpass
+	password = getpass()
+else:
+	print >>stderr, 'Password: *****'
 print >>stderr, 'Revision: %d' % revision_no
 
 data = xml_request(
