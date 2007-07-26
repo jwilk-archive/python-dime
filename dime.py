@@ -86,6 +86,10 @@ class Type(object):
 
 class UnchangedType(Type):
 
+	'''This type must be used in all middle record chunks and terminating
+	record chunks used in chunked payloads.
+	It must not be used in any other record.'''
+
 	_code = 0x00
 	require_empty_value = True
 
@@ -93,6 +97,8 @@ class UnchangedType(Type):
 		return '<unchanged>'
 
 class MediaType(Type):
+
+	'''A type which is identified by a media type construct.'''
 
 	_code = 0x01
 
@@ -105,6 +111,8 @@ class MediaType(Type):
 		return MIMEBase(maintype, subtype)
 
 class TypeByUri(Type):
+	
+	'''A type which is identified by a URI construct.'''
 
 	_code = 0x02
 
@@ -120,6 +128,8 @@ class TypeByUri(Type):
 
 class UnknownType(Type):
 
+	'''Indicate that type of the payload is unknown.'''
+
 	_code = 0x03
 	require_empty_value = True
 
@@ -128,6 +138,8 @@ class UnknownType(Type):
 
 class NoneType(Type):
 
+	'''Indicate that there is no type or payload associated with this record.'''
+
 	_code = 0x04
 	require_empty_value = True
 
@@ -135,6 +147,8 @@ class NoneType(Type):
 		return '<none>'
 
 class UnsupportedType(Type):
+
+	'''An unsupported type.'''
 
 	_code = None
 
