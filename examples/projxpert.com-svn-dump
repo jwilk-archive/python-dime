@@ -17,7 +17,8 @@ from cStringIO import StringIO
 from cgi import escape as cgi_escape
 from gzip import GzipFile
 from optparse import OptionParser
-from os.path import walk as path_walk, join as path_join, expanduser
+from os import listdir
+from os.path import join as path_join, expanduser
 from re import compile as compile_re
 from sys import stdout, stderr
 from urllib2 import Request, urlopen
@@ -70,11 +71,10 @@ def guess_credentials(project_code, username, password):
 		realmstring = REALM_STRING_RE.pattern.replace('(.*)', project_code)
 	dir = path_join(guess_subversion_dir(), 'auth', 'svn.simple')
 
-	fnames = []
-	def visit(fnames, _dirname, _fnames):
-		fnames += _fnames
-		del _fnames[:]
-	path_walk(dir, visit, fnames)
+	try:
+		fnames = listdir(dir)
+	except OSError:
+		fnames = []
 	for file_ in (file(path_join(dir, fname)) for fname in fnames):
 		credentials = {}
 		while 1:
