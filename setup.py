@@ -15,7 +15,7 @@ Topic :: Software Development :: Libraries :: Python Modules'''.split('\n')
 from distutils.core import setup
 
 setup(
-	name = 'dime',
+	name = 'python-dime',
 	version = '0.1',
 	license = 'GNU GPL 2',
 	platforms = ['any'],
