@@ -18,5 +18,4 @@ Description: Python module for DIME message processing
  format that can be used to encapsulate multiple payloads into a single
  message.
  .
- Homepage: <http://code.google.com/p/python-dime/>
-
+ Homepage: <http://python-dime.googlecode.com/>

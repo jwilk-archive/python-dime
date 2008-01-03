@@ -22,7 +22,7 @@ setup(
 	description = 'DIME message processing',
 	long_description = __doc__.strip(),
 	classifiers = classifiers,
-	url = 'http://code.google.com/p/python-dime/',
+	url = 'http://python-dime.googlecode.com/',
 	author = 'Jakub Wilk',
 	author_email = 'ubanus@users.sf.net',
 	py_modules = ['dime']
