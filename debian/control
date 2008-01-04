@@ -2,14 +2,15 @@ Source: python-dime
 Section: python
 Priority: extra
 Maintainer: Jakub Wilk <ubanus@users.sf.net>
-Build-Depends: cdbs, debhelper (>= 5), python-setuptools, python-support
-Standards-Version: 3.7.2
+Build-Depends: cdbs, debhelper (>= 5), python-all-dev, python-setuptools (>= 0.6b3-1), python-support
+Standards-Version: 3.7.3
 Bugs: mailto:ubanus@users.sf.net
-XS-Vcs-Svn: http://python-dime.googlecode.com/svn/trunk
-XS-Vcs-Browser: http://python-dime.googlecode.com/svn/trunk
+Vcs-Svn: http://python-dime.googlecode.com/svn/trunk
+Vcs-Browser: http://python-dime.googlecode.com/svn/trunk
+Homepage: http://python-dime.googlecode.com/
 
 Package: python-dime
-Architecture: any
+Architecture: all
 Depends: ${python:Depends}
 Description: Python module for DIME message processing
  python-dime provides a way to parse and generate DIME messages.
@@ -17,5 +18,3 @@ Description: Python module for DIME message processing
  Direct Internet Message Encapsulation (DIME) is a binary message
  format that can be used to encapsulate multiple payloads into a single
  message.
- .
- Homepage: <http://python-dime.googlecode.com/>
