@@ -6,7 +6,7 @@ Build-Depends: cdbs, debhelper (>= 5), python-all-dev, python-setuptools (>= 0.6
 Standards-Version: 3.7.3
 Bugs: mailto:ubanus@users.sf.net
 Vcs-Svn: http://python-dime.googlecode.com/svn/trunk
-Vcs-Browser: http://python-dime.googlecode.com/svn/trunk
+Vcs-Browser: http://code.google.com/p/python-dime/source/browse
 Homepage: http://python-dime.googlecode.com/
 
 Package: python-dime
