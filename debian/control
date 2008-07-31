@@ -2,7 +2,7 @@ Source: python-dime
 Section: python
 Priority: extra
 Maintainer: Jakub Wilk <ubanus@users.sf.net>
-Build-Depends: cdbs, debhelper (>= 5), python-all-dev, python-setuptools (>= 0.6b3-1), python-support
+Build-Depends: debhelper (>= 7), python-all-dev, python-setuptools (>= 0.6b3), python-support
 Standards-Version: 3.8.0
 Bugs: mailto:ubanus@users.sf.net
 Vcs-Svn: http://python-dime.googlecode.com/svn/trunk
