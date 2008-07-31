@@ -22,8 +22,8 @@ __version__ = 'svn%03d' % int('$LastChangedRevision$'.split()[1])
 __all__ = \
 [
 	'Message',
-    'Record',
-    'Type',
+	'Record',
+	'Type',
 		'NoneType',
 		'MediaType',
 		'TypeByUri',
