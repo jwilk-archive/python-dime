@@ -224,7 +224,7 @@ class Record(object):
 		flags = ','.join(flag for flag in ('mb', 'me', 'cf') if getattr(self, flag))
 		if flags == '':
 			flags = 0
-		return '%s with id=%s, type=%s, flags=%s>' % (head, `self.id`, self.type, flags)
+		return '%s with id=%s, type=%s, flags=%s>' % (head, repr(self.id), self.type, flags)
 
 	def save(self, stream):
 		dose = self.cf | self.me << 1 | self.mb << 2 | self.version << 3;
