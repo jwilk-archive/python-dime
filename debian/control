@@ -8,6 +8,7 @@ Bugs: mailto:ubanus@users.sf.net
 Vcs-Svn: http://python-dime.googlecode.com/svn/trunk
 Vcs-Browser: http://code.google.com/p/python-dime/source/browse
 Homepage: http://python-dime.googlecode.com/
+XS-Python-Version: >= 2.4
 
 Package: python-dime
 Architecture: all
