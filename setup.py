@@ -1,7 +1,7 @@
 '''
-python-dime provides a way to parse and generate DIME messages.
+*python-dime* provides a way to parse and generate DIME messages.
 
-Direct Internet Message Encapsulation (DIME) is a binary message format that can be used to encapsulate multiple payloads into a single message.\
+Direct Internet Message Encapsulation <http://xml.coverpages.org/draft-nielsen-dime-02.txt>`_ (DIME) is a binary message format that can be used to encapsulate multiple payloads into a single message.
 '''
 
 classifiers = '''\
@@ -10,7 +10,9 @@ Intended Audience :: Developers
 License :: OSI Approved :: GNU General Public License (GPL)
 Operating System :: OS Independent
 Programming Language :: Python
-Topic :: Software Development :: Libraries :: Python Modules'''.split('\n')
+Programming Language :: Python :: 2
+Topic :: Internet\
+'''.split('\n')
 
 try:
 	from setuptools import setup
@@ -19,7 +21,7 @@ except ImportError:
 
 setup(
 	name = 'python-dime',
-	version = '0.1',
+	version = '0.2',
 	license = 'GNU GPL 2',
 	platforms = ['any'],
 	description = 'DIME message processing',
