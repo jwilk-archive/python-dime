@@ -1,7 +1,7 @@
 '''
 *python-dime* provides a way to parse and generate DIME messages.
 
-Direct Internet Message Encapsulation <http://xml.coverpages.org/draft-nielsen-dime-02.txt>`_ (DIME) is a binary message format that can be used to encapsulate multiple payloads into a single message.
+`Direct Internet Message Encapsulation <http://xml.coverpages.org/draft-nielsen-dime-02.txt>`_ (DIME) is a binary message format that can be used to encapsulate multiple payloads into a single message.
 '''
 
 classifiers = '''\
