@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # encoding=UTF-8
 
-# Copyright © 2007, 2008, 2009 Jakub Wilk <ubanus@users.sf.net>
+# Copyright © 2007, 2008, 2009 Jakub Wilk <jwilk@jwilk.net>
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License, version 2, as published
@@ -18,7 +18,7 @@
 DIME specification: <http://xml.coverpages.org/draft-nielsen-dime-02.txt>.
 '''
 
-__author__ = 'Jakub Wilk <ubanus@users.sf.net>'
+__author__ = 'Jakub Wilk <jwilk@jwilk.net>'
 __version__ = '0.2'
 __all__ = \
 [

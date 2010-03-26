@@ -26,7 +26,7 @@ setup(
 	classifiers = classifiers,
 	url = 'http://python-dime.googlecode.com/',
 	author = 'Jakub Wilk',
-	author_email = 'ubanus@users.sf.net',
+	author_email = 'jwilk@jwilk.net',
 	py_modules = ['dime']
 )
 
