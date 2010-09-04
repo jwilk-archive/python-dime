@@ -7,7 +7,7 @@
 classifiers = '''\
 Development Status :: 3 - Alpha
 Intended Audience :: Developers
-License :: OSI Approved :: GNU General Public License (GPL)
+License :: OSI Approved :: MIT
 Operating System :: OS Independent
 Programming Language :: Python
 Programming Language :: Python :: 2
@@ -19,7 +19,7 @@ from distutils.core import setup
 setup(
 	name = 'python-dime',
 	version = '0.2',
-	license = 'GNU GPL 2',
+	license = 'MIT',
 	platforms = ['any'],
 	description = 'DIME message processing',
 	long_description = __doc__.strip(),
