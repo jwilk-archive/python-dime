@@ -24,7 +24,7 @@ setup(
 	description = 'DIME message processing',
 	long_description = __doc__.strip(),
 	classifiers = classifiers,
-	url = 'http://python-dime.googlecode.com/',
+	url = 'http://jwilk.net/software/python-dime',
 	author = 'Jakub Wilk',
 	author_email = 'jwilk@jwilk.net',
 	py_modules = ['dime']
