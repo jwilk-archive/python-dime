@@ -18,7 +18,7 @@ from distutils.core import setup
 
 setup(
 	name = 'python-dime',
-	version = '0.2',
+	version = '0.2.1',
 	license = 'MIT',
 	platforms = ['any'],
 	description = 'DIME message processing',
