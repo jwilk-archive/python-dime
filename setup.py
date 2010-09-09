@@ -14,9 +14,12 @@ Programming Language :: Python :: 2
 Topic :: Internet\
 '''.split('\n')
 
-from distutils.core import setup
+import os
+import distutils.core
 
-setup(
+os.putenv('TAR_OPTIONS', '--owner root --group root --mode a+rX')
+
+distutils.core.setup(
 	name = 'python-dime',
 	version = '0.2.1',
 	license = 'MIT',
