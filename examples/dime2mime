@@ -1,6 +1,7 @@
 #!/usr/bin/python
+
 from dime import Message
 from sys import stdin
 print Message.load(stdin).as_mime()
 
-# vim:ts=4 sw=4 noet
+# vim:ts=4 sw=4 et
