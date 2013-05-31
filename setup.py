@@ -21,7 +21,7 @@ os.putenv('TAR_OPTIONS', '--owner root --group root --mode a+rX')
 
 distutils.core.setup(
     name='python-dime',
-    version='0.2.1',
+    version='0.2.2',
     license='MIT',
     platforms=['any'],
     description='DIME message processing',
