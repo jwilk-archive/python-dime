@@ -28,7 +28,7 @@ DIME specification: <http://xml.coverpages.org/draft-nielsen-dime-02.txt>.
 '''
 
 __author__ = 'Jakub Wilk <jwilk@jwilk.net>'
-__version__ = '0.2.1'
+__version__ = '0.2.2'
 __all__ = \
 [
     'Message',
