@@ -81,7 +81,7 @@ class Type(object):
             pass
         self.tnf = self._code
         self.value = value
-    
+
     @staticmethod
     def load_string(tnf, value):
         _typecheck_int(tnf, 4)
@@ -89,7 +89,7 @@ class Type(object):
             if klass._code == tnf:
                 return klass(value)
         return UnsupportedType(tnf, value)
-    
+
     def as_mime(self):
         from email.MIMEBase import MIMEBase
         return MIMEBase('application', 'octet-stream')
@@ -121,7 +121,7 @@ class MediaType(Type):
         return MIMEBase(maintype, subtype)
 
 class TypeByUri(Type):
-    
+
     '''A type which is identified by a URI construct.'''
 
     _code = 0x02
@@ -165,7 +165,7 @@ class UnsupportedType(Type):
     def __init__(self, tnf, value):
         Type.__init__(self, value)
         self.tnf = tnf
-    
+
     def __str__(self):
         return '<unsupported>'
 
@@ -181,7 +181,7 @@ def _write4(stream, value):
 def _write_padded(stream, value):
     stream.write(value)
     stream.write('\0' * (4 - len(value) & 3))
-    
+
 def _read1(stream):
     value, = _struct.unpack('>B', stream.read(1))
     return value
@@ -271,7 +271,7 @@ class Record(object):
         type = _read_padded(stream, type_length)
         data = _read_padded(stream, data_length)
         return Record(id, Type.load_string(tnf, type), data, mb, me, cf, version)
-    
+
     @staticmethod
     def load_all(stream):
         while True:
@@ -294,7 +294,7 @@ class Message(object):
     def __init__(self, records):
         self.records = list(records)
         self.dict = dict((record.id, record) for record in self.records)
-    
+
     def __repr__(self):
         head = object.__repr__(self).split(' object ')[0]
         return '%s with records=%s>' % (head, self.records)
