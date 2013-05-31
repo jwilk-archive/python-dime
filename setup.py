@@ -20,17 +20,17 @@ import distutils.core
 os.putenv('TAR_OPTIONS', '--owner root --group root --mode a+rX')
 
 distutils.core.setup(
-	name = 'python-dime',
-	version = '0.2.1',
-	license = 'MIT',
-	platforms = ['any'],
-	description = 'DIME message processing',
-	long_description = __doc__.strip(),
-	classifiers = classifiers,
-	url = 'http://jwilk.net/software/python-dime',
-	author = 'Jakub Wilk',
-	author_email = 'jwilk@jwilk.net',
-	py_modules = ['dime']
+    name='python-dime',
+    version='0.2.1',
+    license='MIT',
+    platforms=['any'],
+    description='DIME message processing',
+    long_description=__doc__.strip(),
+    classifiers=classifiers,
+    url='http://jwilk.net/software/python-dime',
+    author='Jakub Wilk',
+    author_email='jwilk@jwilk.net',
+    py_modules=['dime']
 )
 
 # vim:ts=4 sw=4 et

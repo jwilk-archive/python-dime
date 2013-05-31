@@ -29,8 +29,7 @@ DIME specification: <http://xml.coverpages.org/draft-nielsen-dime-02.txt>.
 
 __author__ = 'Jakub Wilk <jwilk@jwilk.net>'
 __version__ = '0.2.2'
-__all__ = \
-[
+__all__ = [
     'Message',
     'Record',
     'Type',
@@ -67,7 +66,7 @@ class Type(object):
     '''Please don't subclass Type, unless you know what you're doing.
     Please don't isntantiate Type. Instead, use one of its subclasses.'''
 
-    def __init__(self, value = ''):
+    def __init__(self, value=''):
         if self.__class__ == Type:
             raise TypeError(
                 '''Please use one of the Type's subclasses: %s.''' %
@@ -211,7 +210,7 @@ class Record(object):
     class UnsupportedVersion(Exception):
         pass
 
-    def __init__(self, id = None, type = DEFAULT_TYPE, data = '', mb = 0, me = 0, cf = 0, version = DEFAULT_VERSION):
+    def __init__(self, id=None, type=DEFAULT_TYPE, data='', mb=0, me=0, cf=0, version=DEFAULT_VERSION):
         if id is None:
             from uuid import uuid4
             id = 'uuid:%s' % uuid4()
@@ -237,11 +236,11 @@ class Record(object):
         return '%s with id=%s, type=%s, flags=%s>' % (head, repr(self.id), self.type, flags)
 
     def save(self, stream):
-        dose = self.cf | self.me << 1 | self.mb << 2 | self.version << 3;
+        dose = self.cf | self.me << 1 | self.mb << 2 | self.version << 3
         _write1(stream, dose)
-        dose = self.type.tnf << 4;
+        dose = self.type.tnf << 4
         _write1(stream, dose)
-        options = '' # options are not supported
+        options = ''  # options are not supported
         for q in (options, self.id, self.type.value):
             _write2(stream, len(q))
         _write4(stream, len(self.data))
@@ -266,7 +265,7 @@ class Record(object):
         type_length = _read2(stream)
         data_length = _read4(stream)
         options = _read_padded(stream, options_length)
-        del options # options are not supported
+        del options  # options are not supported
         id = _read_padded(stream, id_length)
         type = _read_padded(stream, type_length)
         data = _read_padded(stream, data_length)
@@ -301,7 +300,7 @@ class Message(object):
 
     @staticmethod
     def load(stream):
-        return Message(records = Record.load_all(stream))
+        return Message(records=Record.load_all(stream))
 
     def __getitem__(self, key):
         if isinstance(key, int):
