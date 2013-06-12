@@ -17,8 +17,6 @@ Topic :: Internet\
 import os
 import distutils.core
 
-os.putenv('TAR_OPTIONS', '--owner root --group root --mode a+rX')
-
 distutils.core.setup(
     name='python-dime',
     version='0.2.2',
