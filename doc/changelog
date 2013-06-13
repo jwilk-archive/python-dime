@@ -1,8 +1,9 @@
 python-dime (0.2.2) UNRELEASED; urgency=low
 
   * Clean up the code.
+  * Add documentation.
 
- -- Jakub Wilk <jwilk@jwilk.net>  Sun, 02 Jun 2013 00:10:09 +0200
+ -- Jakub Wilk <jwilk@jwilk.net>  Thu, 13 Jun 2013 21:08:13 +0200
 
 python-dime (0.2.1) unstable; urgency=low
 

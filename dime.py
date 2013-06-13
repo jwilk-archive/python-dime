@@ -21,10 +21,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-
-'''Parse and generate DIME messages.
-
-DIME specification: <http://xml.coverpages.org/draft-nielsen-dime-02.txt>.
+'''
+parse and generate DIME messages
 '''
 
 __author__ = 'Jakub Wilk <jwilk@jwilk.net>'
@@ -63,8 +61,9 @@ def _typecheck(value, klass):
 
 class Type(object):
 
-    '''Please don't subclass Type, unless you know what you're doing.
-    Please don't isntantiate Type. Instead, use one of its subclasses.'''
+    '''
+    abstract payload type class
+    '''
 
     def __init__(self, value=''):
         if self.__class__ == Type:
@@ -95,9 +94,10 @@ class Type(object):
 
 class UnchangedType(Type):
 
-    '''This type must be used in all middle record chunks and terminating
-    record chunks used in chunked payloads.
-    It must not be used in any other record.'''
+    '''
+    payload type to be used in middle record chunks and terminating record
+    chunks used in chunked payloads
+    '''
 
     _code = 0x00
     require_empty_value = True
@@ -107,7 +107,7 @@ class UnchangedType(Type):
 
 class MediaType(Type):
 
-    '''A type which is identified by a media type construct.'''
+    '''payload type identified by media type construct'''
 
     _code = 0x01
 
@@ -121,7 +121,7 @@ class MediaType(Type):
 
 class TypeByUri(Type):
 
-    '''A type which is identified by a URI construct.'''
+    '''type identified by an URI construct'''
 
     _code = 0x02
 
@@ -137,7 +137,7 @@ class TypeByUri(Type):
 
 class UnknownType(Type):
 
-    '''Indicate that type of the payload is unknown.'''
+    '''indicate that type of the payload is unknown'''
 
     _code = 0x03
     require_empty_value = True
@@ -147,7 +147,7 @@ class UnknownType(Type):
 
 class NoneType(Type):
 
-    '''Indicate that there is no type or payload associated with this record.'''
+    '''indicate that there is no type or payload associated with the record'''
 
     _code = 0x04
     require_empty_value = True
@@ -157,7 +157,7 @@ class NoneType(Type):
 
 class UnsupportedType(Type):
 
-    '''An unsupported type.'''
+    '''unsupported type'''
 
     _code = None
 

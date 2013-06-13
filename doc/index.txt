@@ -1,0 +1,134 @@
+API
+===
+
+.. currentmodule:: dime
+
+Messages
+--------
+
+.. class:: Message(records)
+
+   :param records: iterable of :class:`Record` objects
+
+   .. staticmethod:: load(stream)
+
+      :param stream: binary file (or file-like) object
+      :returns: :class:`Message` object
+
+      Load a message from the stream.
+
+   .. method:: save(stream)
+
+      :param stream: binary file (or file-like) object
+
+      Save the message to the stream.
+
+   .. method:: as_mime()
+
+      :returns: :class:`email.mime.multipart.MIMEMultipart` object
+
+Records
+-------
+
+.. class:: Record(id=<random-uuid>, type=UnknownType(), data='', mb=0, me=0, cf=0, version=1)
+
+   :param id: unique identifier in the form or URI; the default is to assign a random UUID
+   :param type: payload type; the default is :class:`UnknownType`
+   :param data: payload
+   :param mb: Message Begin flag
+   :param me: Message End flag
+   :param cf: Chunk Flag
+   :param version: DIME version
+
+   .. staticmethod:: load(stream)
+
+      :param stream: binary file (or file-like) object
+      :returns: :class:`Record` object
+
+      Load a records from the stream.
+
+   .. staticmethod:: load_all(stream)
+
+      :param stream: binary file (or file-like) object
+      :returns: generator of :class:`Record` objects
+
+      Load a series of records from the stream.
+
+   .. method:: save(stream)
+
+      :param stream: binary file (or file-like) object
+
+      Save the record to the stream.
+
+   .. method:: as_mime()
+
+      :returns: :class:`email.MIMEBase.MIMEBase` object
+
+.. exception:: Record.FaultyRecord
+
+.. exception:: Record.UnsupportedVersion
+
+Payload types
+-------------
+
+.. class:: Type
+
+   This is an abstract class. Don't instatiate or subclass it.
+   Use one of the existing subclasses described below instead.
+
+   .. method:: as_mime()
+
+      :returns: :class:`email.MIMEBase.MIMEBase` object
+
+.. class:: UnchangedType()
+
+   This payload type must be used in all middle record chunks and
+   terminating record chunks used in chunked payloads.
+   It must not be used in any other record.
+
+.. class:: MediaType(media_type)
+
+   These payload types are identified by a MIME media type.
+
+   >>> t = dime.MediaType('image/jpeg')
+   >>> str(t)
+   'image/jpeg'
+
+.. class:: TypeByUri(uri)
+
+   These payload types are identified by an absolute URI.
+
+   >>> t = dime.TypeByUri('http://schemas.xmlsoap.org/soap/envelope/')
+   >>> str(t)
+   'http://schemas.xmlsoap.org/soap/envelope/'
+
+.. class:: UnknownType()
+
+   This class indicates that the type of the payload is unknown.
+
+.. class:: NoneType()
+
+   This class indicates that there is no type or payload associated with
+   thes record.
+
+.. class:: UnsupportedType
+
+   These payload types not supported by this software.
+   Don't use this class to construct DIME messages.
+
+Further reading
+===============
+
+.. [DIME]
+   H. Nielsen, H. Sanders, R. Butek, S. Nash,
+   `Direct Internet Message Encapsulation (DIME) <http://xml.coverpages.org/draft-nielsen-dime-02.txt>`_,
+   2002
+
+Examples
+========
+
+DIME to MIME converter
+----------------------
+.. literalinclude:: ../examples/dime2mime
+
+.. vim:ts=3 sw=3 et ft=rst
