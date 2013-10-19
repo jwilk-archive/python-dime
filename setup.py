@@ -4,15 +4,15 @@
 `Direct Internet Message Encapsulation <http://xml.coverpages.org/draft-nielsen-dime-02.txt>`_ (DIME) is a binary message format that can be used to encapsulate multiple payloads into a single message.
 '''
 
-classifiers = '''\
+classifiers = '''
 Development Status :: 3 - Alpha
 Intended Audience :: Developers
 License :: OSI Approved :: MIT License
 Operating System :: OS Independent
 Programming Language :: Python
 Programming Language :: Python :: 2
-Topic :: Internet\
-'''.split('\n')
+Topic :: Internet
+'''.strip().splitlines()
 
 import distutils.core
 
