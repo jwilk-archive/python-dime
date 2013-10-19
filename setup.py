@@ -14,7 +14,6 @@ Programming Language :: Python :: 2
 Topic :: Internet\
 '''.split('\n')
 
-import os
 import distutils.core
 
 distutils.core.setup(
