@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # encoding=UTF-8
 
-# Copyright © 2007-2013 Jakub Wilk <jwilk@jwilk.net>
+# Copyright © 2007-2015 Jakub Wilk <jwilk@jwilk.net>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the “Software”), to deal
@@ -89,7 +89,7 @@ class Type(object):
         return UnsupportedType(tnf, value)
 
     def as_mime(self):
-        from email.MIMEBase import MIMEBase
+        from email.mime.base import MIMEBase
         return MIMEBase('application', 'octet-stream')
 
 class UnchangedType(Type):
@@ -115,7 +115,7 @@ class MediaType(Type):
         return self.value
 
     def as_mime(self):
-        from email.MIMEBase import MIMEBase
+        from email.mime.base import MIMEBase
         maintype, subtype = self.value.split('/')
         return MIMEBase(maintype, subtype)
 
@@ -129,7 +129,7 @@ class TypeByUri(Type):
         return self.value
 
     def as_mime(self):
-        from email.MIMEBase import MIMEBase
+        from email.mime.base import MIMEBase
         if self.value == SOAP_NS:
             return MIMEBase('text', 'xml')
         else:
@@ -280,7 +280,7 @@ class Record(object):
                 break
 
     def as_mime(self):
-        from email.Encoders import encode_7or8bit as encode
+        from email.encoders import encode_7or8bit as encode
         attachment = self.type.as_mime()
         attachment.set_payload(self.data)
         attachment['Content-Length'] = str(len(self.data))
@@ -324,7 +324,7 @@ class Message(object):
             record.save(stream)
 
     def as_mime(self):
-        from email.MIMEMultipart import MIMEMultipart
+        from email.mime.multipart import MIMEMultipart
         message = MIMEMultipart()
         message.preamble = 'This is a multi-part message in MIME format. It was automatically converted from a DIME message.\n'
         message.epilogue = ''
