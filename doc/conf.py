@@ -1,5 +1,9 @@
 import os
 
+extensions = [
+    'sphinx.ext.doctest',
+]
+
 source_suffix = '.txt'
 master_doc = 'index'
 

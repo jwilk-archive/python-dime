@@ -3,6 +3,10 @@ API
 
 .. currentmodule:: dime
 
+.. testsetup:: *
+
+   import dime
+
 Messages
 --------
 
