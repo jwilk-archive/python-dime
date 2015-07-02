@@ -55,8 +55,8 @@ def _typecheck_int(value, bits):
     if not (0 <= value < (1 << bits)):
         raise ValueError()
 
-def _typecheck(value, klass):
-    if not isinstance(value, klass):
+def _typecheck(value, cls):
+    if not isinstance(value, cls):
         raise ValueError()
 
 class Type(object):
@@ -69,7 +69,7 @@ class Type(object):
         if self.__class__ == Type:
             raise TypeError(
                 '''Please use one of the Type's subclasses: %s.''' %
-                ', '.join(klass.__name__ for klass in Type.__subclasses__())
+                ', '.join(cls.__name__ for cls in Type.__subclasses__())
             )
         _typecheck_str(value, 16)
         try:
@@ -83,9 +83,9 @@ class Type(object):
     @staticmethod
     def load_string(tnf, value):
         _typecheck_int(tnf, 4)
-        for klass in Type.__subclasses__():
-            if klass._code == tnf:
-                return klass(value)
+        for cls in Type.__subclasses__():
+            if cls._code == tnf:
+                return cls(value)
         return UnsupportedType(tnf, value)
 
     def as_mime(self):
