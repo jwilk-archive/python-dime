@@ -19,4 +19,4 @@ release = version = get_version()
 html_theme = 'haiku'
 pygments_style = 'sphinx'
 
-# vim:ts=4 sw=4 et
+# vim:ts=4 sts=4 sw=4 et
