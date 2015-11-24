@@ -77,7 +77,7 @@ Payload types
 
 .. class:: Type
 
-   This is an abstract class. Don't instatiate or subclass it.
+   This is an abstract class. Don't instantiate or subclass it.
    Use one of the existing subclasses described below instead.
 
    .. method:: as_mime()
