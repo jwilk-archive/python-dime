@@ -36,7 +36,7 @@ Records
 
 .. class:: Record(id=<random-uuid>, type=UnknownType(), data='', mb=0, me=0, cf=0, version=1)
 
-   :param id: unique identifier in the form or URI; the default is to assign a random UUID
+   :param id: unique identifier in the form of URI; the default is to assign a random UUID
    :param type: payload type; the default is :class:`UnknownType`
    :param data: payload
    :param mb: Message Begin flag
