@@ -120,7 +120,7 @@ class MediaType(Type):
 
 class TypeByUri(Type):
 
-    '''type identified by an URI construct'''
+    '''type identified by a URI construct'''
 
     _code = 0x02
 
