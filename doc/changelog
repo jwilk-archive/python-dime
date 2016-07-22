@@ -2,8 +2,9 @@ python-dime (0.2.2) UNRELEASED; urgency=low
 
   * Clean up the code.
   * Add documentation.
+  * Include MANIFEST.in in the tarball.
 
- -- Jakub Wilk <jwilk@jwilk.net>  Thu, 13 Jun 2013 21:08:13 +0200
+ -- Jakub Wilk <jwilk@jwilk.net>  Fri, 22 Jul 2016 12:34:22 +0200
 
 python-dime (0.2.1) unstable; urgency=low
 
