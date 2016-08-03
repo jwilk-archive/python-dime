@@ -46,7 +46,6 @@ distutils.core.setup(
     name='python-dime',
     version='0.2.2',
     license='MIT',
-    platforms=['any'],
     description='DIME message processing',
     long_description=__doc__.strip(),
     classifiers=classifiers,
