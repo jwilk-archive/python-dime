@@ -24,6 +24,8 @@
 parse and generate DIME messages
 '''
 
+import struct as _struct
+
 __author__ = 'Jakub Wilk <jwilk@jwilk.net>'
 __version__ = '0.2.2'
 __all__ = [
@@ -39,8 +41,6 @@ __all__ = [
 ]
 
 SOAP_NS = 'http://schemas.xmlsoap.org/soap/envelope/'
-
-import struct as _struct
 
 def _typecheck_str(value, bits):
     if not isinstance(value, str):
