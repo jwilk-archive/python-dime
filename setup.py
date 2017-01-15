@@ -30,6 +30,8 @@ can be used to encapsulate multiple payloads into a single message.
    http://xml.coverpages.org/draft-nielsen-dime-02.txt
 '''
 
+import distutils.core
+
 classifiers = '''
 Development Status :: 3 - Alpha
 Intended Audience :: Developers
@@ -39,8 +41,6 @@ Programming Language :: Python
 Programming Language :: Python :: 2
 Topic :: Internet
 '''.strip().splitlines()
-
-import distutils.core
 
 distutils.core.setup(
     name='python-dime',
