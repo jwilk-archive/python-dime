@@ -30,7 +30,22 @@ can be used to encapsulate multiple payloads into a single message.
    http://xml.coverpages.org/draft-nielsen-dime-02.txt
 '''
 
+import os
+
 import distutils.core
+from distutils.command.sdist import sdist as distutils_sdist
+
+class cmd_sdist(distutils_sdist):
+
+    def maybe_move_file(self, base_dir, src, dst):
+        src = os.path.join(base_dir, src)
+        dst = os.path.join(base_dir, dst)
+        if os.path.exists(src):
+            self.move_file(src, dst)
+
+    def make_release_tree(self, base_dir, files):
+        distutils_sdist.make_release_tree(self, base_dir, files)
+        self.maybe_move_file(base_dir, 'LICENSE', 'doc/LICENSE')
 
 classifiers = '''
 Development Status :: 3 - Alpha
@@ -52,7 +67,10 @@ distutils.core.setup(
     url='http://jwilk.net/software/python-dime',
     author='Jakub Wilk',
     author_email='jwilk@jwilk.net',
-    py_modules=['dime']
+    py_modules=['dime'],
+    cmdclass=dict(
+        sdist=cmd_sdist,
+    ),
 )
 
 # vim:ts=4 sts=4 sw=4 et
