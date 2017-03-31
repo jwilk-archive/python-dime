@@ -30,6 +30,7 @@ can be used to encapsulate multiple payloads into a single message.
    http://xml.coverpages.org/draft-nielsen-dime-02.txt
 '''
 
+import io
 import os
 
 import distutils.core
@@ -47,6 +48,11 @@ class cmd_sdist(distutils_sdist):
         distutils_sdist.make_release_tree(self, base_dir, files)
         self.maybe_move_file(base_dir, 'LICENSE', 'doc/LICENSE')
 
+def get_version():
+    with io.open('doc/changelog', encoding='UTF-8') as file:
+        line = file.readline()
+    return line.split()[1].strip('()')
+
 classifiers = '''
 Development Status :: 3 - Alpha
 Intended Audience :: Developers
@@ -59,7 +65,7 @@ Topic :: Internet
 
 distutils.core.setup(
     name='python-dime',
-    version='0.2.2',
+    version=get_version(),
     license='MIT',
     description='DIME message processing',
     long_description=__doc__.strip(),
