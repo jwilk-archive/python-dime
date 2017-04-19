@@ -30,15 +30,6 @@ can be used to encapsulate multiple payloads into a single message.
    http://xml.coverpages.org/draft-nielsen-dime-02.txt
 '''
 
-from __future__ import with_statement
-# The import here is needed so that the version check is reachable
-# even with Python 2.5.
-
-import sys
-
-if sys.version_info < (2, 6):
-    raise RuntimeError('Python >= 2.6 is required')
-
 import io
 import os
 
@@ -51,6 +42,8 @@ except ImportError:
     pass
 else:
     distutils644.install()
+
+b''  # Python >= 2.6 is required
 
 class cmd_sdist(distutils_sdist):
 
