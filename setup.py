@@ -45,6 +45,13 @@ import os
 import distutils.core
 from distutils.command.sdist import sdist as distutils_sdist
 
+try:
+    import distutils644
+except ImportError:
+    pass
+else:
+    distutils644.install()
+
 class cmd_sdist(distutils_sdist):
 
     def maybe_move_file(self, base_dir, src, dst):
