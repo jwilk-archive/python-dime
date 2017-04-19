@@ -44,6 +44,7 @@ else:
     distutils644.install()
 
 b''  # Python >= 2.6 is required
+exec ''  # Python 3.X is not supported
 
 class cmd_sdist(distutils_sdist):
 
