@@ -6,10 +6,12 @@ python:
 - "2.7"
 - pypy
 install:
+- pip install pydiatra pyflakes
 - if [ "$TRAVIS_PYTHON_VERSION" = '2.6' ]; then SPHINX_VERSION=1.4.9; fi
 - pip install sphinx${SPHINX_VERSION:+==$SPHINX_VERSION}
 script:
-- python -m compileall -f .
+- py2diatra .
+- pyflakes .
 - PYTHONPATH=$PWD sphinx-build -b doctest doc tmp
 - python setup.py install
 - cd /
