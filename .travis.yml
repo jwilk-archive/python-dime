@@ -6,9 +6,11 @@ python:
 - "2.7"
 - pypy
 before_install:
+- pyflakes=pyflakes
+- if [[ $TRAVIS_PYTHON_VERSION = 2.6 ]]; then pyflakes='pyflakes<2'; fi
 - if [[ $TRAVIS_PYTHON_VERSION = 2.6 ]]; then sphinx_suffix===1.4.9; fi
 install:
-- pip install pydiatra pyflakes
+- pip install pydiatra $pyflakes
 - pip install sphinx${sphinx_suffix}
 script:
 - py2diatra .
