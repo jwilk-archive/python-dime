@@ -13,6 +13,7 @@ install:
 - pip install pydiatra $pyflakes
 - pip install sphinx${sphinx_suffix}
 script:
+- dpkg-parsechangelog -ldoc/changelog --all 2>&1 >/dev/null | { ! grep .; }
 - py2diatra .
 - pyflakes .
 - PYTHONPATH=$PWD sphinx-build -b doctest doc tmp
