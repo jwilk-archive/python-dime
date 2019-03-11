@@ -113,7 +113,7 @@ Payload types
 .. class:: NoneType()
 
    This class indicates that there is no type or payload associated with
-   thes record.
+   this record.
 
 .. class:: UnsupportedType
 
