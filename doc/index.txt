@@ -131,6 +131,10 @@ Further reading
 Examples
 ========
 
+Tiny DIME producer
+------------------
+.. literalinclude:: ../examples/make-dime
+
 DIME to MIME converter
 ----------------------
 .. literalinclude:: ../examples/dime2mime

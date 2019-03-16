@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+import argparse
+import os
+
+import dime
+
+ap = argparse.ArgumentParser()
+ap.add_argument('-o', dest='outpath', metavar='OUTPUT', required=True)
+ap.add_argument('paths', metavar='FILE', nargs='+')
+options = ap.parse_args()
+text_type = dime.MediaType('text/plain')
+records = []
+for path in options.paths:
+    with open(path, 'r') as file:
+        data = file.read()
+    ident = os.path.basename(path)
+    record = dime.Record(ident, text_type, data)
+    records += [record]
+message = dime.Message(records)
+with open(options.outpath, 'w') as file:
+    message.save(file)
+
+# vim:ts=4 sts=4 sw=4 et
