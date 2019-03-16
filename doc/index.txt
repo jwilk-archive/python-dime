@@ -123,10 +123,9 @@ Payload types
 Further reading
 ===============
 
-.. [DIME]
-   H. Nielsen, H. Sanders, R. Butek, S. Nash,
-   `Direct Internet Message Encapsulation (DIME) <http://xml.coverpages.org/draft-nielsen-dime-02.txt>`_,
-   2002
+H. Nielsen, H. Sanders, R. Butek, S. Nash,
+`Direct Internet Message Encapsulation (DIME) <http://xml.coverpages.org/draft-nielsen-dime-02.txt>`_,
+2002
 
 Examples
 ========
