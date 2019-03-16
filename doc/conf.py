@@ -9,7 +9,6 @@ source_suffix = '.txt'
 master_doc = 'index'
 
 project = 'python-dime'
-copyright = '2013, Jakub Wilk'
 
 def get_version():
     path = os.path.join(
@@ -23,6 +22,7 @@ def get_version():
 release = version = get_version()
 
 html_theme = 'haiku'
+html_show_copyright = False
 pygments_style = 'sphinx'
 
 # vim:ts=4 sts=4 sw=4 et
