@@ -1,4 +1,4 @@
-python-dime (0.3) UNRELEASED; urgency=low
+python-dime (0.3) unstable; urgency=low
 
   * Clean up the code.
   * Simplify docstrings.
@@ -13,7 +13,7 @@ python-dime (0.3) UNRELEASED; urgency=low
       classifiers.)
   * Put license into a separate file.
 
- -- Jakub Wilk <jwilk@jwilk.net>  Fri, 22 Mar 2019 16:59:02 +0100
+ -- Jakub Wilk <jwilk@jwilk.net>  Fri, 22 Mar 2019 17:39:12 +0100
 
 python-dime (0.2.1) unstable; urgency=low
 
