@@ -8,14 +8,18 @@ before_install:
 - pyflakes=pyflakes
 - if [[ $TRAVIS_PYTHON_VERSION = 2.6 ]]; then pyflakes='pyflakes<2'; fi
 - if [[ $TRAVIS_PYTHON_VERSION = 2.6 ]]; then sphinx_suffix===1.4.9; fi
+- if [[ $TRAVIS_PYTHON_VERSION = 2.6 ]]; then if_rstlint=:; fi
 install:
 - pip install pydiatra $pyflakes
 - pip install sphinx${sphinx_suffix}
+- $if_rstlint pip install restructuredtext-lint
 script:
 - dpkg-parsechangelog -ldoc/changelog --all 2>&1 >/dev/null | { ! grep .; }
 - py2diatra .
 - pyflakes .
 - PYTHONPATH=$PWD sphinx-build -b doctest doc tmp
+- description=$(python setup.py --long-description)
+- $if_rstlint restructuredtext-lint --encoding=UTF-8 /dev/stdin <<<"$description"
 - python setup.py install
 - cd /
 - python -c 'import dime'
