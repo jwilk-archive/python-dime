@@ -20,8 +20,10 @@ script:
 - PYTHONPATH=$PWD sphinx-build -b doctest doc tmp
 - description=$(python setup.py --long-description)
 - $if_rstlint restructuredtext-lint --encoding=UTF-8 /dev/stdin <<<"$description"
+- python setup.py --version > ~/python-dime-version-setup
 - python setup.py install
 - cd /
-- python -c 'import dime'
+- python -c 'import dime; print dime.__version__' > ~/python-dime-version-code
+- diff -u ~/python-dime-version-*
 
 # vim:ts=2 sts=2 sw=2 et
