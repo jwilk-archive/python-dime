@@ -27,7 +27,7 @@ parse and generate DIME messages
 import struct as _struct
 
 __author__ = 'Jakub Wilk <jwilk@jwilk.net>'
-__version__ = '0.2.2'
+__version__ = '0.3'
 __all__ = [
     'Message',
     'Record',
